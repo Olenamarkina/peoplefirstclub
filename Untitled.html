@@ -1,0 +1,89 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="Content-Style-Type" content="text/css">
+  <title></title>
+  <meta name="Generator" content="Cocoa HTML Writer">
+  <meta name="CocoaVersion" content="2299.7">
+  <style type="text/css">
+    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica}
+    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica; min-height: 14.0px}
+  </style>
+</head>
+<body>
+<p class="p1">&lt;!DOCTYPE html&gt;</p>
+<p class="p1">&lt;html lang="en"&gt;</p>
+<p class="p1">&lt;head&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;meta charset="UTF-8"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;title&gt;Animated Map&lt;/title&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" /&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;style&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>#map {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>height: 100vh;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/style&gt;</p>
+<p class="p1">&lt;/head&gt;</p>
+<p class="p1">&lt;body&gt;</p>
+<p class="p2"><br></p>
+<p class="p1">&lt;div id="map"&gt;&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1">&lt;script src="https://unpkg.com/leaflet/dist/leaflet.js"&gt;&lt;/script&gt;</p>
+<p class="p1">&lt;script&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>// &lt;!DOCTYPE html&gt;</p>
+<p class="p1">&lt;html lang="en"&gt;</p>
+<p class="p1">&lt;head&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;meta charset="UTF-8"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;title&gt;Animated Map&lt;/title&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" /&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;style&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>#map {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>height: 100vh;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/style&gt;</p>
+<p class="p1">&lt;/head&gt;</p>
+<p class="p1">&lt;body&gt;</p>
+<p class="p2"><br></p>
+<p class="p1">&lt;div id="map"&gt;&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1">&lt;script src="https://unpkg.com/leaflet/dist/leaflet.js"&gt;&lt;/script&gt;</p>
+<p class="p1">&lt;script&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>var locations = [</p>
+<p class="p1"><span class="Apple-converted-space">        </span>{ name: 'Kyiv, Ukraine', coordinates: [50.4501, 30.5234] },</p>
+<p class="p1"><span class="Apple-converted-space">        </span>{ name: 'Budapest, Hungary', coordinates: [47.4979, 19.0402] },</p>
+<p class="p1"><span class="Apple-converted-space">        </span>{ name: 'Bangkok, Thailand', coordinates: [13.7563, 100.5018] },</p>
+<p class="p1"><span class="Apple-converted-space">        </span>{ name: 'Mombasa, Kenya', coordinates: [-4.0435, 39.6682] },</p>
+<p class="p1"><span class="Apple-converted-space">        </span>{ name: 'Rokiskis, Lithuania', coordinates: [55.9574, 25.5948] },</p>
+<p class="p1"><span class="Apple-converted-space">        </span>{ name: 'Kyiv, Ukraine', coordinates: [50.4501, 30.5234] },</p>
+<p class="p1"><span class="Apple-converted-space">    </span>];</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>var map = L.map('map').setView([0, 0], 2);</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {</p>
+<p class="p1"><span class="Apple-converted-space">        </span>attribution: '&amp;copy; OpenStreetMap contributors'</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}).addTo(map);</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>var marker = L.marker(locations[0].coordinates).addTo(map);</p>
+<p class="p1"><span class="Apple-converted-space">    </span>var currentIndex = 0;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>function animateMap() {</p>
+<p class="p1"><span class="Apple-converted-space">        </span>if (currentIndex &lt; locations.length - 1) {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>currentIndex++;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>marker.setLatLng(locations[currentIndex].coordinates);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>map.panTo(locations[currentIndex].coordinates, { animate: true, duration: 2 });</p>
+<p class="p1"><span class="Apple-converted-space">            </span>setTimeout(animateMap, 3000); // Adjust the delay as needed</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>animateMap();</p>
+<p class="p2"><br></p>
+<p class="p1">&lt;/script&gt;</p>
+<p class="p2"><br></p>
+<p class="p1">&lt;/body&gt;</p>
+<p class="p1">&lt;/html&gt;</p>
+<p class="p2"><br></p>
+</body>
+</html>
